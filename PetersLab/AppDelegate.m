@@ -19,7 +19,22 @@
     
     [ExposeManager beginTracking];
     [ExposeManager setExposeBlock:^(ExposeItem * item) {
-        NSLog(@"满足曝光 %@", item);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (item.exView) {
+                item.exView.backgroundColor =  [UIColor orangeColor];
+                if ([item.exView isKindOfClass:[UILabel class]]) {
+                    UILabel *label = (UILabel *)item.exView;
+                    label.textColor = [UIColor orangeColor];
+                }
+            }
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                item.exView.backgroundColor =  [UIColor clearColor];
+                if ([item.exView isKindOfClass:[UILabel class]]) {
+                    UILabel *label = (UILabel *)item.exView;
+                    label.textColor = [UIColor blackColor];
+                }
+            });
+        });
     }];
     // Override point for customization after application launch.
     return YES;

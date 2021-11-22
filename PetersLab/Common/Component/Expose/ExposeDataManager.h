@@ -35,9 +35,11 @@ typedef void (^ExposeViewBlock)(ExposeItem *);
 
 - (void)removeDataFromPage:(NSString *)pageName componentName:(NSString *)componentName dataId:(NSString *)dataid;
 
+- (void)resetDataFromPage:(NSString *)pageName componentName:(NSString *)componentName dataId:(NSString *)dataid;
+
 - (void)addDataForPage:(NSString *)pageName componentName:(NSString *)componentName view:(UIView *)view;
 
-- (void)loopUnsafeComponentsForPageName:(NSString *)pageName;
+- (void)loopUnsafeComponentsForPageName:(NSString *)pageName exposeTime:(CGFloat)exposeTime timeInterVal:(CGFloat)interval;
 
 - (void)removePageData:(NSString *)pageName;
 

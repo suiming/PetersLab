@@ -13,7 +13,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, copy) NSString *exposeId;
 
+@property(nonatomic, strong) NSDictionary *exposeParams;
+
+// 用于判断是否满足曝光条件
 - (BOOL)isExposing;
+
+// 用于判断是否在屏幕上： 不在时需要移除
+- (BOOL)isOnScreen;
 
 @end
 

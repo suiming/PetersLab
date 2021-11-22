@@ -55,13 +55,8 @@
     NSString *exposeId = [NSString stringWithFormat:@"%ld - %ld",indexPath.section, indexPath.row];
     cell.textLabel.text = exposeId;
     
-    
     // 曝光逻辑
-    if (cell.exposeId.length > 0) {
-        [ExposeManager removeDataFromPage:NSStringFromClass([self class]) componentName:@"CellView" dataId:cell.exposeId];
-    }
-    cell.exposeId = exposeId;
-    [ExposeManager addDataForPage:NSStringFromClass([self class]) componentName:@"CellView" view:cell];
+    [ExposeManager trackView:cell componentName:@"CellView" dataId:exposeId trackParams:@{@"name": exposeId}];
     
     return cell;
 }

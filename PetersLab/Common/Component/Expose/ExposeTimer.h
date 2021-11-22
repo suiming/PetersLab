@@ -12,9 +12,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ExposeTimer : NSObject
 
+@property(nonatomic, assign) NSInteger exposeTime;
+
+@property(nonatomic, assign) CGFloat exposeInterval;
+
 - (void)beginLoop;
 
 - (void)stopLoop;
+
+- (UIViewController *)getCurrentVC;
 
 @end
 

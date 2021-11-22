@@ -16,19 +16,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ExposeManager : NSObject
 
++ (void)setExposeTime:(CGFloat)time timeInterval:(CGFloat)interval;
+
 + (ExposeManager *)sharedInstance;
 
 + (void)beginTracking;
 
 + (void)stopTracking;
 
-+ (void)removeDataFromPage:(NSString *)pageName componentName:(NSString *)componentName dataId:(NSString *)dataid;
-
-+ (void)addDataForPage:(NSString *)pageName componentName:(NSString *)componentName view:(UIView *)view;
-
-+ (void)loopUnsafeComponentsForPageName:(NSString *)pageName;
-
 + (void)setExposeBlock:(ExposeViewBlock)exposeBlock;
+
++ (void)trackView:(UIView *)view
+    componentName:(NSString *)componentName
+           dataId:(NSString *)dataid
+      trackParams:(NSDictionary *)params;
 
 - (void)removePageData:(NSString *)pageName;
 

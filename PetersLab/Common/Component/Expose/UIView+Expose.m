@@ -9,6 +9,7 @@
 #import <objc/runtime.h>
 
 const void * exposeViewKey = "expose_view_key";
+const void * exposeParamsKey = "expose_view_params_key";
 
 @implementation UIView (Expose)
 
@@ -20,8 +21,19 @@ const void * exposeViewKey = "expose_view_key";
     objc_setAssociatedObject(self, exposeViewKey, exposeId, OBJC_ASSOCIATION_COPY);
 }
 
+- (NSDictionary *)exposeParams {
+    return (NSDictionary *)objc_getAssociatedObject(self, exposeParamsKey);
+}
+
+
+- (void)setExposeParams:(NSDictionary *)exposeParams {
+    objc_setAssociatedObject(self, exposeParamsKey, exposeParams, OBJC_ASSOCIATION_RETAIN);
+}
 
 - (BOOL)isExposing {
+    if (self.isHidden || self.alpha == 0) {
+        return NO;
+    }
     CGRect rect = [self convertRect:self.bounds toView:self.window];
     
     NSInteger centerX = ceil(rect.origin.x + rect.size.width /2);
@@ -29,6 +41,15 @@ const void * exposeViewKey = "expose_view_key";
     CGSize size = [UIApplication sharedApplication].keyWindow.bounds.size;
     BOOL isExposing = centerX > 0 && centerX < size.width && centerY > size.height * 0.1 && centerY < size.height * 0.9;
     return isExposing;
+}
+
+- (BOOL)isOnScreen {
+    if (self.isHidden || self.alpha == 0) {
+        return NO;
+    }
+    CGRect rect = [self convertRect:self.bounds toView:self.window];
+    BOOL isOnScreen = CGRectIntersectsRect([UIApplication sharedApplication].keyWindow.bounds, rect);
+    return isOnScreen;
 }
 
 @end

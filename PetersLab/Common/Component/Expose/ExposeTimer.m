@@ -21,6 +21,16 @@
 
 @implementation ExposeTimer
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        // 默认
+        self.exposeTime = 3;
+        self.exposeInterval = 0.5;
+    }
+    return self;
+}
+
 // 在一个串行队列执行Timer
 - (void)beginLoop {
     self.seriralQueue = dispatch_queue_create("ExposeTimerQueue", DISPATCH_QUEUE_SERIAL);
@@ -38,7 +48,7 @@
 
 -(NSTimer *)timer {
     if (!_timer) {
-        _timer = [NSTimer timerWithTimeInterval:0.2 target:self selector:@selector(loopOnce) userInfo:nil repeats:YES];
+        _timer = [NSTimer timerWithTimeInterval:self.exposeInterval target:self selector:@selector(loopOnce) userInfo:nil repeats:YES];
     }
     return _timer;
 }
@@ -50,7 +60,7 @@
         NSString *pageName = NSStringFromClass([viewController class]);
         
         dispatch_async(self.concurrent, ^{
-            [ExposeDataManager.sharedInstance loopUnsafeComponentsForPageName:pageName];
+            [ExposeDataManager.sharedInstance loopUnsafeComponentsForPageName:pageName exposeTime:self.exposeTime timeInterVal:self.exposeInterval];
         });
     });
     
