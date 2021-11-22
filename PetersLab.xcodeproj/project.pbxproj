@@ -20,11 +20,11 @@
 		ADA6E6DF272CE9DF0077FA94 /* PetersLabUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA6E6DE272CE9DF0077FA94 /* PetersLabUITests.m */; };
 		ADA6E6E1272CE9DF0077FA94 /* PetersLabUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA6E6E0272CE9DF0077FA94 /* PetersLabUITestsLaunchTests.m */; };
 		ADA6E6F0272CEA480077FA94 /* BSBacktraceLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA6E6EE272CEA480077FA94 /* BSBacktraceLogger.m */; };
-		ADBC976E2748C3B300B92557 /* ExposeDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBC976D2748C3B300B92557 /* ExposeDataManager.m */; };
-		ADBC97742748D17000B92557 /* UIView+Expose.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBC97732748D17000B92557 /* UIView+Expose.m */; };
-		ADBC97772748D66000B92557 /* ExposeTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBC97762748D66000B92557 /* ExposeTimer.m */; };
-		ADBC97832748FC5600B92557 /* ExposeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBC97822748FC5600B92557 /* ExposeManager.m */; };
-		ADD546C8274BB1F1006903DF /* UIViewController+Expose.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD546C7274BB1F1006903DF /* UIViewController+Expose.m */; };
+		ADD546D3274BB373006903DF /* UIViewController+Expose.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD546C9274BB372006903DF /* UIViewController+Expose.m */; };
+		ADD546D4274BB373006903DF /* UIView+Expose.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD546CB274BB373006903DF /* UIView+Expose.m */; };
+		ADD546D5274BB373006903DF /* ExposeTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD546CC274BB373006903DF /* ExposeTimer.m */; };
+		ADD546D6274BB373006903DF /* ExposeDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD546CD274BB373006903DF /* ExposeDataManager.m */; };
+		ADD546D7274BB373006903DF /* ExposeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD546CE274BB373006903DF /* ExposeManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,16 +67,16 @@
 		ADA6E6E0272CE9DF0077FA94 /* PetersLabUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PetersLabUITestsLaunchTests.m; sourceTree = "<group>"; };
 		ADA6E6EE272CEA480077FA94 /* BSBacktraceLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSBacktraceLogger.m; sourceTree = "<group>"; };
 		ADA6E6EF272CEA480077FA94 /* BSBacktraceLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSBacktraceLogger.h; sourceTree = "<group>"; };
-		ADBC976C2748C3B300B92557 /* ExposeDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExposeDataManager.h; sourceTree = "<group>"; };
-		ADBC976D2748C3B300B92557 /* ExposeDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExposeDataManager.m; sourceTree = "<group>"; };
-		ADBC97722748D17000B92557 /* UIView+Expose.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Expose.h"; sourceTree = "<group>"; };
-		ADBC97732748D17000B92557 /* UIView+Expose.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Expose.m"; sourceTree = "<group>"; };
-		ADBC97752748D66000B92557 /* ExposeTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExposeTimer.h; sourceTree = "<group>"; };
-		ADBC97762748D66000B92557 /* ExposeTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExposeTimer.m; sourceTree = "<group>"; };
-		ADBC97812748FC5600B92557 /* ExposeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExposeManager.h; sourceTree = "<group>"; };
-		ADBC97822748FC5600B92557 /* ExposeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExposeManager.m; sourceTree = "<group>"; };
-		ADD546C6274BB1F1006903DF /* UIViewController+Expose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Expose.h"; sourceTree = "<group>"; };
-		ADD546C7274BB1F1006903DF /* UIViewController+Expose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Expose.m"; sourceTree = "<group>"; };
+		ADD546C9274BB372006903DF /* UIViewController+Expose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Expose.m"; sourceTree = "<group>"; };
+		ADD546CA274BB372006903DF /* ExposeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExposeManager.h; sourceTree = "<group>"; };
+		ADD546CB274BB373006903DF /* UIView+Expose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Expose.m"; sourceTree = "<group>"; };
+		ADD546CC274BB373006903DF /* ExposeTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExposeTimer.m; sourceTree = "<group>"; };
+		ADD546CD274BB373006903DF /* ExposeDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExposeDataManager.m; sourceTree = "<group>"; };
+		ADD546CE274BB373006903DF /* ExposeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExposeManager.m; sourceTree = "<group>"; };
+		ADD546CF274BB373006903DF /* ExposeDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExposeDataManager.h; sourceTree = "<group>"; };
+		ADD546D0274BB373006903DF /* UIView+Expose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Expose.h"; sourceTree = "<group>"; };
+		ADD546D1274BB373006903DF /* UIViewController+Expose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Expose.h"; sourceTree = "<group>"; };
+		ADD546D2274BB373006903DF /* ExposeTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExposeTimer.h; sourceTree = "<group>"; };
 		BE5E14E27B25DE7E5E2C527B /* Pods-PetersLab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetersLab.release.xcconfig"; path = "Target Support Files/Pods-PetersLab/Pods-PetersLab.release.xcconfig"; sourceTree = "<group>"; };
 		EB5FBDD2ECF0659657E753FE /* Pods-PetersLabTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetersLabTests.debug.xcconfig"; path = "Target Support Files/Pods-PetersLabTests/Pods-PetersLabTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FFE0077383FCBB1999B4FAA4 /* libPods-PetersLab.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PetersLab.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -277,16 +277,16 @@
 		ADBC975F2747912900B92557 /* Expose */ = {
 			isa = PBXGroup;
 			children = (
-				ADBC97812748FC5600B92557 /* ExposeManager.h */,
-				ADBC97822748FC5600B92557 /* ExposeManager.m */,
-				ADBC976C2748C3B300B92557 /* ExposeDataManager.h */,
-				ADBC976D2748C3B300B92557 /* ExposeDataManager.m */,
-				ADBC97722748D17000B92557 /* UIView+Expose.h */,
-				ADBC97732748D17000B92557 /* UIView+Expose.m */,
-				ADBC97752748D66000B92557 /* ExposeTimer.h */,
-				ADBC97762748D66000B92557 /* ExposeTimer.m */,
-				ADD546C6274BB1F1006903DF /* UIViewController+Expose.h */,
-				ADD546C7274BB1F1006903DF /* UIViewController+Expose.m */,
+				ADD546CF274BB373006903DF /* ExposeDataManager.h */,
+				ADD546CD274BB373006903DF /* ExposeDataManager.m */,
+				ADD546CA274BB372006903DF /* ExposeManager.h */,
+				ADD546CE274BB373006903DF /* ExposeManager.m */,
+				ADD546D2274BB373006903DF /* ExposeTimer.h */,
+				ADD546CC274BB373006903DF /* ExposeTimer.m */,
+				ADD546D0274BB373006903DF /* UIView+Expose.h */,
+				ADD546CB274BB373006903DF /* UIView+Expose.m */,
+				ADD546D1274BB373006903DF /* UIViewController+Expose.h */,
+				ADD546C9274BB372006903DF /* UIViewController+Expose.m */,
 			);
 			path = Expose;
 			sourceTree = "<group>";
@@ -483,13 +483,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADA6E6C0272CE9DC0077FA94 /* ViewController.m in Sources */,
+				ADD546D6274BB373006903DF /* ExposeDataManager.m in Sources */,
 				ADA6E6BA272CE9DC0077FA94 /* AppDelegate.m in Sources */,
-				ADBC97742748D17000B92557 /* UIView+Expose.m in Sources */,
-				ADBC976E2748C3B300B92557 /* ExposeDataManager.m in Sources */,
-				ADBC97832748FC5600B92557 /* ExposeManager.m in Sources */,
+				ADD546D3274BB373006903DF /* UIViewController+Expose.m in Sources */,
+				ADD546D4274BB373006903DF /* UIView+Expose.m in Sources */,
 				ADA6E6CB272CE9DF0077FA94 /* main.m in Sources */,
-				ADD546C8274BB1F1006903DF /* UIViewController+Expose.m in Sources */,
-				ADBC97772748D66000B92557 /* ExposeTimer.m in Sources */,
+				ADD546D5274BB373006903DF /* ExposeTimer.m in Sources */,
+				ADD546D7274BB373006903DF /* ExposeManager.m in Sources */,
 				ADA6E6BD272CE9DC0077FA94 /* SceneDelegate.m in Sources */,
 				ADA6E6F0272CEA480077FA94 /* BSBacktraceLogger.m in Sources */,
 			);
