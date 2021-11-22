@@ -45,6 +45,8 @@ typedef void (^ExposeViewBlock)(ExposeItem *);
 
 - (void)removePageData:(NSString *)pageName componentName:(NSString *)componentName;
 
+- (BOOL)isPageEmputy;
+
 @end
 
 NS_ASSUME_NONNULL_END

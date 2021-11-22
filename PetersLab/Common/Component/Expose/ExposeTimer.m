@@ -6,6 +6,7 @@
 //
 
 #import "ExposeTimer.h"
+#import "UIViewController+Expose.h"
 
 @interface ExposeTimer ()
 
@@ -32,7 +33,7 @@
 }
 
 // 在一个串行队列执行Timer
-- (void)beginLoop {
+- (void)startLoop {
     self.seriralQueue = dispatch_queue_create("ExposeTimerQueue", DISPATCH_QUEUE_SERIAL);
     self.concurrent = dispatch_queue_create("ExposeOperation", DISPATCH_QUEUE_CONCURRENT);
     dispatch_async(self.seriralQueue, ^{
@@ -56,56 +57,15 @@
 // 在多线程上执行具体操作
 - (void)loopOnce {
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIViewController *viewController = [self getCurrentVC];
+        UIViewController *viewController = [UIViewController getCurrentVC];
         NSString *pageName = NSStringFromClass([viewController class]);
         
         dispatch_async(self.concurrent, ^{
             [ExposeDataManager.sharedInstance loopUnsafeComponentsForPageName:pageName exposeTime:self.exposeTime timeInterVal:self.exposeInterval];
         });
     });
-    
-    
-}
-
-- (UIViewController *)getCurrentVC {
-    UIViewController *result = nil;
-    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
-    if (window.windowLevel != UIWindowLevelNormal) {
-        NSArray *windows = [[UIApplication sharedApplication] windows];
-        for(UIWindow * tmpWin in windows) {
-            if (tmpWin.windowLevel == UIWindowLevelNormal) {
-                window = tmpWin;
-                break;
-            }
-        }
-    }
-    UIViewController * nextResponder = window.rootViewController;
-    result = [self getCurrentVisibleVC:nextResponder];
-    
-    return result;
-}
-
-
-- (UIViewController *)getCurrentVisibleVC:(id)nextResponder {
-    
-    UIViewController *result = nil;
-    if ([nextResponder isKindOfClass:[UITabBarController class]]) {
-        UITabBarController * nextVc = (UITabBarController *)nextResponder;
-        nextResponder = nextVc.viewControllers[nextVc.selectedIndex];
-         result =  [self getCurrentVisibleVC:nextResponder];
         
-    } else if([nextResponder isKindOfClass:[UINavigationController class]]) {
-        UINavigationController * Navi = (UINavigationController *)nextResponder;
-        result = Navi.visibleViewController;
-        if (result) result = [self getCurrentVisibleVC:result];
-    }
-    else if ([nextResponder isKindOfClass:[UIViewController class]]) {
-        result = nextResponder;
-    }
-    
-    return result ?: nextResponder;
 }
-
 
 
 @end

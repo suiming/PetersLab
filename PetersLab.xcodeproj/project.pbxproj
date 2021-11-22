@@ -24,6 +24,7 @@
 		ADBC97742748D17000B92557 /* UIView+Expose.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBC97732748D17000B92557 /* UIView+Expose.m */; };
 		ADBC97772748D66000B92557 /* ExposeTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBC97762748D66000B92557 /* ExposeTimer.m */; };
 		ADBC97832748FC5600B92557 /* ExposeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBC97822748FC5600B92557 /* ExposeManager.m */; };
+		ADD546C8274BB1F1006903DF /* UIViewController+Expose.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD546C7274BB1F1006903DF /* UIViewController+Expose.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,8 @@
 		ADBC97762748D66000B92557 /* ExposeTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExposeTimer.m; sourceTree = "<group>"; };
 		ADBC97812748FC5600B92557 /* ExposeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExposeManager.h; sourceTree = "<group>"; };
 		ADBC97822748FC5600B92557 /* ExposeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExposeManager.m; sourceTree = "<group>"; };
+		ADD546C6274BB1F1006903DF /* UIViewController+Expose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Expose.h"; sourceTree = "<group>"; };
+		ADD546C7274BB1F1006903DF /* UIViewController+Expose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Expose.m"; sourceTree = "<group>"; };
 		BE5E14E27B25DE7E5E2C527B /* Pods-PetersLab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetersLab.release.xcconfig"; path = "Target Support Files/Pods-PetersLab/Pods-PetersLab.release.xcconfig"; sourceTree = "<group>"; };
 		EB5FBDD2ECF0659657E753FE /* Pods-PetersLabTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetersLabTests.debug.xcconfig"; path = "Target Support Files/Pods-PetersLabTests/Pods-PetersLabTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FFE0077383FCBB1999B4FAA4 /* libPods-PetersLab.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PetersLab.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -282,6 +285,8 @@
 				ADBC97732748D17000B92557 /* UIView+Expose.m */,
 				ADBC97752748D66000B92557 /* ExposeTimer.h */,
 				ADBC97762748D66000B92557 /* ExposeTimer.m */,
+				ADD546C6274BB1F1006903DF /* UIViewController+Expose.h */,
+				ADD546C7274BB1F1006903DF /* UIViewController+Expose.m */,
 			);
 			path = Expose;
 			sourceTree = "<group>";
@@ -483,6 +488,7 @@
 				ADBC976E2748C3B300B92557 /* ExposeDataManager.m in Sources */,
 				ADBC97832748FC5600B92557 /* ExposeManager.m in Sources */,
 				ADA6E6CB272CE9DF0077FA94 /* main.m in Sources */,
+				ADD546C8274BB1F1006903DF /* UIViewController+Expose.m in Sources */,
 				ADBC97772748D66000B92557 /* ExposeTimer.m in Sources */,
 				ADA6E6BD272CE9DC0077FA94 /* SceneDelegate.m in Sources */,
 				ADA6E6F0272CEA480077FA94 /* BSBacktraceLogger.m in Sources */,

@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (ExposeManager *)sharedInstance;
 
-+ (void)beginTracking;
++ (void)startTracking;
 
 + (void)stopTracking;
 
@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
            dataId:(NSString *)dataid
       trackParams:(NSDictionary *)params;
 
-- (void)removePageData:(NSString *)pageName;
++ (void)removePageData:(NSString *)pageName;
 
 - (void)removePageData:(NSString *)pageName componentName:(NSString *)componentName;
 

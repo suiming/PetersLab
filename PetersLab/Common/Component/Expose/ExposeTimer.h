@@ -16,11 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, assign) CGFloat exposeInterval;
 
-- (void)beginLoop;
+- (void)startLoop;
 
 - (void)stopLoop;
 
-- (UIViewController *)getCurrentVC;
 
 @end
 

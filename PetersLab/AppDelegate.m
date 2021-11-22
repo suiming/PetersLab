@@ -17,7 +17,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [ExposeManager beginTracking];
     [ExposeManager setExposeBlock:^(ExposeItem * item) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (item.exView) {

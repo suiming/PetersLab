@@ -7,6 +7,7 @@
 
 #import "ExposeManager.h"
 #import "ExposeTimer.h"
+#import "UIViewController+Expose.h"
 
 @interface ExposeManager ()
 
@@ -16,11 +17,23 @@
 
 @property(nonatomic, assign) CGFloat exposeInterval;
 
+@property(nonatomic, assign) BOOL isRunningLoop;
+
 @end
 
 
 
 @implementation ExposeManager
+
+- (ExposeTimer *)timer {
+    if (!_timer) {
+        ExposeTimer *timer = [[ExposeTimer alloc]init];
+        timer.exposeTime = ExposeManager.sharedInstance.exposeTime;
+        timer.exposeInterval = ExposeManager.sharedInstance.exposeInterval;
+        _timer = timer;
+    }
+    return _timer;
+}
 
 + (void)setExposeTime:(CGFloat)time timeInterval:(CGFloat)interval {
     ExposeManager.sharedInstance.exposeTime = time;
@@ -39,33 +52,38 @@
     return _sharedObject;
 }
 
-+ (void)beginTracking {
++ (void)startTracking {
     if (ExposeManager.sharedInstance.timer) {
         [ExposeManager.sharedInstance.timer stopLoop];
         ExposeManager.sharedInstance.timer = nil;
     }
-    ExposeTimer *timer = [[ExposeTimer alloc]init];
-    ExposeManager.sharedInstance.timer = timer;
-    timer.exposeTime = ExposeManager.sharedInstance.exposeTime;
-    timer.exposeInterval = ExposeManager.sharedInstance.exposeInterval;
-    [timer beginLoop];
+    
+    [ExposeManager.sharedInstance.timer startLoop];
+    ExposeManager.sharedInstance.isRunningLoop = YES;
 }
 
 + (void)stopTracking {
-    [ExposeManager.sharedInstance.timer stopLoop];
+    if (ExposeManager.sharedInstance.isRunningLoop) {
+        [ExposeManager.sharedInstance.timer stopLoop];
+        ExposeManager.sharedInstance.isRunningLoop = NO;
+    }
 }
 
 + (void)trackView:(UIView *)view
     componentName:(NSString *)componentName
            dataId:(NSString *)dataid
       trackParams:(NSDictionary *)params {
-    NSString *pageName = NSStringFromClass([ExposeManager.sharedInstance.timer.getCurrentVC class]);
-    
+    NSString *pageName = NSStringFromClass([[UIViewController getCurrentVC] class]);
     [ExposeManager removeDataFromPage:pageName componentName:componentName dataId:view.exposeId];
     [ExposeManager removeDataFromPage:pageName componentName:componentName dataId:dataid];
     view.exposeId = dataid;
     view.exposeParams = params;
     [ExposeManager addDataForPage:pageName componentName:componentName view:view];
+    
+    // 按需启动，节省资源
+    if (!ExposeManager.sharedInstance.isRunningLoop) {
+        [ExposeManager startTracking];
+    }
 }
 
 + (void)removeDataFromPage:(NSString *)pageName componentName:(NSString *)componentName dataId:(NSString *)dataid {
@@ -81,8 +99,12 @@
 }
 
 
-- (void)removePageData:(NSString *)pageName {
++ (void)removePageData:(NSString *)pageName {
     [ExposeDataManager.sharedInstance removePageData:pageName];
+    // 按需启动，节省资源
+    if (ExposeDataManager.sharedInstance.isPageEmputy) {
+        [ExposeManager stopTracking];
+    }
 }
 
 - (void)removePageData:(NSString *)pageName componentName:(NSString *)componentName {

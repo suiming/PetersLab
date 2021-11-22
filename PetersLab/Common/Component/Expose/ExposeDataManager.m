@@ -51,20 +51,30 @@
 
 
 - (NSMutableDictionary *)getPageDataByPage:(NSString *)pageName {
-    NSMutableDictionary *componentsDict = [self.pagesDict objectForKey:pageName];
+    if (pageName.length > 0) {
+        NSMutableDictionary *componentsDict = [self.pagesDict objectForKey:pageName];
 
-    return componentsDict;
+        return componentsDict;
+    } else {
+        return nil;
+    }
+    
 }
 
 // 获取某个页面下某个组件的统计
 - (NSMutableDictionary *)getComponentDataByPage:(NSString *)pageName componentName:(NSString *)componentName {
-    NSMutableDictionary *componentsDict = [self getPageDataByPage:pageName];
-    NSMutableDictionary *datasDict = [componentsDict objectForKey:componentName];
-    return datasDict;
+    if (pageName.length > 0 && componentName.length > 0) {
+        NSMutableDictionary *componentsDict = [self getPageDataByPage:pageName];
+        NSMutableDictionary *datasDict = [componentsDict objectForKey:componentName];
+        return datasDict;
+    } else {
+        return nil;
+    }
+    
 }
 
 - (ExposeItem *)getDataByPage:(NSString *)pageName componentName:(NSString *)componentName dataId:(NSString *)dataid {
-    if (dataid.length > 0) {
+    if (pageName.length > 0 && componentName.length > 0 && dataid.length > 0) {
         NSMutableDictionary* datasDict = [self getComponentDataByPage:pageName componentName:componentName];
         ExposeItem *item =[datasDict objectForKey:dataid];
         return item;
@@ -76,18 +86,20 @@
 
 
 - (void)setDataForPage:(NSString *)pageName componentName:(NSString *)componentName itemData:(ExposeItem *)itemData {
-    NSMutableDictionary *componentsDict = [self.pagesDict objectForKey:pageName];
-    if (!componentsDict) {
-        componentsDict = self.pagesDict[pageName] = [NSMutableDictionary dictionary];
-    }
+    if (pageName.length > 0 && componentName.length > 0 && itemData.exDataid.length > 0) {
+        NSMutableDictionary *componentsDict = [self.pagesDict objectForKey:pageName];
+        if (!componentsDict) {
+            componentsDict = self.pagesDict[pageName] = [NSMutableDictionary dictionary];
+        }
 
-    NSMutableDictionary *datasDict = [componentsDict objectForKey:componentName];
-    if (!datasDict) {
-        datasDict = componentsDict[componentName] = [NSMutableDictionary dictionary];
-    }
+        NSMutableDictionary *datasDict = [componentsDict objectForKey:componentName];
+        if (!datasDict) {
+            datasDict = componentsDict[componentName] = [NSMutableDictionary dictionary];
+        }
 
-    if (itemData && itemData.exDataid) {
-        [datasDict setObject:itemData forKey:itemData.exDataid];
+        if (itemData && itemData.exDataid) {
+            [datasDict setObject:itemData forKey:itemData.exDataid];
+        }
     }
 }
 
@@ -179,6 +191,10 @@
     if (self.exposeBlock) {
         self.exposeBlock(item);
     }
+}
+
+- (BOOL)isPageEmputy {
+    return [self.pagesDict allKeys].count == 0;
 }
 
 @end

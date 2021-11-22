@@ -56,7 +56,7 @@
     cell.textLabel.text = exposeId;
     
     // 曝光逻辑
-    [ExposeManager trackView:cell componentName:@"CellView" dataId:exposeId trackParams:@{@"name": exposeId}];
+    [ExposeManager trackView:cell.textLabel componentName:@"CellView" dataId:exposeId trackParams:@{@"name": exposeId}];
     
     return cell;
 }
