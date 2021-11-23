@@ -1,5 +1,4 @@
 source 'https://github.com/CocoaPods/Specs.git'
-source 'https://gitlab.casstime.net/app/ios/CassSpecs-iOS.git'
 
 platform :ios, '9.0'
 install! 'cocoapods', :disable_input_output_paths => true

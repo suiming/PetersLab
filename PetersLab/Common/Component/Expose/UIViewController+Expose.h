@@ -3,7 +3,6 @@
 //  CassECommerce
 //
 //  Created by suiming on 2021/11/22.
-//  Copyright © 2021 CassTime. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
